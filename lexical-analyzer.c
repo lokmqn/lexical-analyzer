@@ -4,7 +4,7 @@
 
 #define MAX_TOKEN_LENGTH 100
 
-// Define token types
+// token types
 typedef enum {
     TOKEN_KEYWORD,
     TOKEN_IDENTIFIER,
@@ -14,7 +14,7 @@ typedef enum {
     TOKEN_UNKNOWN
 } TokenType;
 
-// List of keywords
+// keywords
 const char *keywords[] = {"if", "else", "while", "return", "int", "float", "void"};
 const int num_keywords = sizeof(keywords) / sizeof(keywords[0]);
 
@@ -28,7 +28,6 @@ int isKeyword(const char *word) {
     return 0;
 }
 
-// Print token
 void printToken(TokenType type, const char *value) {
     const char *type_str[] = {
         "Keyword", "Identifier", "Number", "Operator", "Delimiter", "Unknown"
@@ -36,7 +35,6 @@ void printToken(TokenType type, const char *value) {
     printf("%s: %s\n", type_str[type], value);
 }
 
-// Lexical analyzer function
 void lexicalAnalyzer(const char *source) {
     int i = 0;
     char token[MAX_TOKEN_LENGTH];
@@ -82,7 +80,7 @@ void lexicalAnalyzer(const char *source) {
                         printToken(TOKEN_IDENTIFIER, token);
                     }
                     tokenIndex = 0;
-                    continue; // Reprocess current character
+                    continue; 
                 }
                 break;
 
@@ -94,7 +92,7 @@ void lexicalAnalyzer(const char *source) {
                     printToken(TOKEN_NUMBER, token);
                     state = START;
                     tokenIndex = 0;
-                    continue; // Reprocess current character
+                    continue; 
                 }
                 break;
 
@@ -103,7 +101,7 @@ void lexicalAnalyzer(const char *source) {
                 printToken(TOKEN_OPERATOR, token);
                 state = START;
                 tokenIndex = 0;
-                continue; // Reprocess current character
+                continue; 
                 break;
 
             case IN_DELIMITER:
@@ -111,13 +109,12 @@ void lexicalAnalyzer(const char *source) {
                 printToken(TOKEN_DELIMITER, token);
                 state = START;
                 tokenIndex = 0;
-                continue; // Reprocess current character
+                continue;
                 break;
         }
         i++;
     }
 
-    // Final token processing (if any)
     if (tokenIndex > 0) {
         token[tokenIndex] = '\0';
         switch (state) {
