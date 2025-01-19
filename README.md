@@ -33,7 +33,7 @@ others – unknown characters.
 
 Project creation :
 
-Choose an approach based on a state machine to handle different types of tokens.
+we c language 
 
 Implement the next states:
 
@@ -47,7 +47,7 @@ Inside operator – Recognize only one character.
 
 Inside delimiter – Recognize only one character.
 
-Implementation :
+Implementation 
 
 Define structures:
 
@@ -55,21 +55,11 @@ choose constants for keywords.
 
 define utility functions to check the keyword and classify the tokens.
 
-Read from source file:
-
-reading one symbol at a time.
-
 handling whitespaces and non-printables.
 
 States handling:
 
 Use the start state to decide what type of token the next symbol belongs to:
-
-L – move to the inside identifier state.
-
-D – to the inside the number.
-
-OOP – define directly.
 
 choose others as unknown characters.
 
@@ -94,12 +84,6 @@ operators +, =.
 delimiters ;, (, ), {, }.
 
 Run the lexical analyzer and check if each token is properly recognized and classified.
-
-Documentation :
-
-Add comments without redundant information to each section.
-
-Describe limitations and possibilities for improvements in the report.
 
 Code Example :
 
